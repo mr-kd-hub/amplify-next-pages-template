@@ -11,6 +11,11 @@ export default function App() {
     client.models.Todo.observeQuery().subscribe({
       next: (data) => setTodos([...data.items]),
     });
+
+    //firebase
+    client.queries.sayHello({
+      name: "Amplify",
+    });
   }
 
   useEffect(() => {
