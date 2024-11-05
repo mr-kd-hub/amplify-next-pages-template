@@ -9,5 +9,10 @@ export const sayHello = defineFunction({
   environment: {
     NAME: 'World',
     // API_ENDPOINT: process.env.API_ENDPOINT
-  }
+  },
+  // Configure Functions
+  timeoutSeconds: 60, // 1 minute timeout
+  memoryMB: 256, // allocate 256 MB of memory to the function.
+  runtime: 20 // use Node 20
+
 });
