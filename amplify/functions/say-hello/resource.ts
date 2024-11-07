@@ -13,6 +13,12 @@ export const sayHello = defineFunction({
   // Configure Functions
   timeoutSeconds: 60, // 1 minute timeout
   memoryMB: 256, // allocate 256 MB of memory to the function.
-  runtime: 20 // use Node 20
+  runtime: 20, // use Node 20
+  
+//Lambda Layers
+  layers: {
+    "@aws-lambda-powertools/logger":
+       "arn:aws:lambda:us-east-1:094274105915:layer:AWSLambdaPowertoolsTypeScriptV2:12",
+   },
 
 });
