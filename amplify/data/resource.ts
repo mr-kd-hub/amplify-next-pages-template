@@ -1,6 +1,7 @@
 import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
 import { sayHello } from "../functions/say-hello/resource";
 import { generateReport } from "../jobs/generate-report/resource"
+import { updateTaskStatus } from "../functions/update-task-status/resource";
 
 /*== STEP 1 ===============================================================
 The section below creates a Todo database table with a "content" field. Try
@@ -24,6 +25,16 @@ const schema = a.schema({
     .handler(a.handler.function(sayHello)),
 
   job: a.query().handler(a.handler.function(generateReport)),
+
+  updateTaskStatus: a
+    .mutation()
+    .arguments({
+      id: a.id(),
+      status: a.string(),
+    })
+    .returns(a.boolean())
+    .handler(a.handler.function(updateTaskStatus)), // Link Lambda function to mutation
+
 });
 
 export type Schema = ClientSchema<typeof schema>;
