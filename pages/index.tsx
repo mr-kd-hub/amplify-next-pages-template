@@ -23,9 +23,18 @@ export default function App() {
   }, []);
 
   function createTodo() {
-    client.models.Todo.create({
-      content: window.prompt("Todo content"),
+    // client.models.Todo.create({
+    //   content: window.prompt("Todo content"),
+    // });
+    return client.mutations.upsertTransaction({
+      name: "Dhruv",
+      age: "25",
+      education: "msc",
+      weight: "65kg",
+      work_exp: "3years",
+      action: "insert",
     });
+
   }
 
   return (
