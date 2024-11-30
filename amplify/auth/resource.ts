@@ -15,5 +15,8 @@ export const auth = defineAuth({
     // preAuthentication
     // preSignUp
     // preTokenGeneration
+    // createAuthChallenge,
+    // defineAuthCh allenge,
+    // verifyAuthChallengeResponse,
   },
 });

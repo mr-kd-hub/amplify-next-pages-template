@@ -14,7 +14,7 @@ export default function App() {
 
     //firebase
     client.queries.sayHello({
-      name: "Amplify",
+      content: "Amplify",
     });
   }
 

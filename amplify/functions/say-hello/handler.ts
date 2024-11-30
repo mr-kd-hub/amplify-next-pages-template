@@ -6,11 +6,11 @@ import type { Schema } from "../../data/resource"
 
 export const handler: Schema["sayHello"]["functionHandler"] = async (event) => {
   // arguments typed from `.arguments()`
-  const { name } = event.arguments
+  const { content } = event.arguments
   // const envVAr = env.NAME
   // return typed from `.returns()`
 
   // logger.info("Hello World");
 
-  return `Hello, ${name}, !` //${envVAr}
+  return `Hello, ${content}, !` //${envVAr}
 }

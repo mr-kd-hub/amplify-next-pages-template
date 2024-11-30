@@ -13,13 +13,14 @@ const schema = a.schema({
   Todo: a
     .model({
       content: a.string(),
+      status: a.string(),
     })
     .authorization((allow) => [allow.publicApiKey()]),
 
   sayHello: a
     .query()
     .arguments({
-      name: a.string(),
+      content: a.string(),
     })
     .returns(a.string())
     .handler(a.handler.function(sayHello)),
