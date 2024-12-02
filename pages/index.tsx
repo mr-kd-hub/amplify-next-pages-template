@@ -26,7 +26,9 @@ export default function App() {
     // client.models.Todo.create({
     //   content: window.prompt("Todo content"),
     // });
-    return client.mutations.upsertTransaction({
+    
+    // ex1
+    client.mutations.upsertTransaction({
       name: "Dhruv",
       age: "25",
       education: "msc",
@@ -35,6 +37,14 @@ export default function App() {
       action: "insert",
     });
 
+    // ex2
+    client.mutations.addTransaction({
+      name: "Dhruv",
+      age: "25",
+      education: "msc",
+      weight: "65kg",
+      work_exp: "3years",
+    });
   }
 
   return (

@@ -3,6 +3,7 @@ import { sayHello } from "../functions/say-hello/resource";
 import { generateReport } from "../jobs/generate-report/resource"
 import { updateTaskStatus } from "../functions/update-task-status/resource";
 import { upsertFunction } from "../functions/upsert/resource";
+import { addFunction } from "../functions/add/resource";
 
 /*== STEP 1 ===============================================================
 The section below creates a Todo database table with a "content" field. Try
@@ -65,7 +66,24 @@ const schema = a.schema({
     // .returns(a.ref("TransactionResponse"))
     // only allow signed-in users to call this API
     .authorization((allow) => [allow.authenticated()])
-    .handler(a.handler.function(upsertFunction))
+    .handler(a.handler.function(upsertFunction)),
+
+   addTransaction: a
+    .mutation()
+    // arguments that this query accepts
+    .arguments({
+      name: a.string(),
+      age: a.string(),
+      weight: a.string(),
+      education: a.string(),
+      work_exp: a.string(),
+      action: a.string(),
+    })
+    // return type of the query
+    // .returns(a.ref("TransactionResponse"))
+    // only allow signed-in users to call this API
+    .authorization((allow) => [allow.authenticated()])
+    .handler(a.handler.function(addFunction))
 });
 
 export type Schema = ClientSchema<typeof schema>;
